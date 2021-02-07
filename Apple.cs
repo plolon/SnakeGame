@@ -11,7 +11,6 @@ namespace Snake
     {
         // Variables and private property
         private Random rand = new Random();
-
         private Point location = new Point(42, 42);
         public Point Location { get =>location; set=>RenderLocation(); }
 

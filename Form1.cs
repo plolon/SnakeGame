@@ -115,6 +115,7 @@ namespace Snake
                 }
             } while (isit == true);
         }
+
         // method to check collision
         private void Collision()
         {
@@ -123,6 +124,7 @@ namespace Snake
                     Stop();
 
         }
+
         // method to exit game and display score
         private void Stop()
         {

@@ -72,6 +72,7 @@ namespace Snake
                     HeadLocation.X = 14;
                     break;
             }
+
              // Y-axis
             switch (HeadLocation.Y)
             {
