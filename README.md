@@ -16,4 +16,5 @@ Project is created with:
 * Windows Forms App
 
 ## Images
+![Algorithm schema](./images/snakeMenu.png)
 ![Algorithm schema](./images/snake.png)
