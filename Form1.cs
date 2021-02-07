@@ -19,6 +19,8 @@ namespace Snake
         Point far = new Point(1000, 1000);
         Apple apple = new Apple();
         int score = 0;
+        MainMenu menu = new MainMenu();
+
         public Form1()
         {
             InitializeComponent();
@@ -131,9 +133,9 @@ namespace Snake
         {
             tailTimer.Stop();
             snakeTailTimer.Stop();
-            MessageBox.Show("Game Over!");
-            Application.Exit();
+            MessageBox.Show($"Game Over!\nYour score: {score}!");
+            this.Hide();
+            menu.ShowDialog();
         }
-
     }
 }
