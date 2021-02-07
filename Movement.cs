@@ -10,10 +10,12 @@ namespace Snake
 {
     class Movement
     {
+        // Starting position
         public Point HeadLocation = new Point(266, 266);
-
+        // Default direction
         private char direction = 'l';
 
+        // Change keys to direction
         public void HandleKeys(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Down && direction != 'u') 
@@ -34,6 +36,7 @@ namespace Snake
             }
         }
 
+        // Methon to run snake head
         public void Move()
         {
             switch (direction)
@@ -54,13 +57,12 @@ namespace Snake
             }
             BorderCrossing();
         }
-        public char SendDirection()
-        {
-            return direction;
-        }
 
+        // Check if head crossing the border
+        // and move it to oder border
         private void BorderCrossing()
         {
+            // X-axis
             switch (HeadLocation.X)
             {
                 case -14:
@@ -70,6 +72,7 @@ namespace Snake
                     HeadLocation.X = 14;
                     break;
             }
+             // Y-axis
             switch (HeadLocation.Y)
             {
                 case -14:

@@ -17,6 +17,7 @@ namespace Snake
             InitializeComponent();
         }
 
+        // Button to start game and close this form
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
@@ -24,11 +25,13 @@ namespace Snake
             form.ShowDialog();
         }
 
+        // Button to show credits in message box
         private void creditsButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Created by Dawid Bańczak");
         }
 
+        // Button to close everything
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();

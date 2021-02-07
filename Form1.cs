@@ -12,6 +12,7 @@ namespace Snake
 {
     public partial class Form1 : Form
     {
+        // Variables and Collections
         Movement snakeMoves = new Movement();
         int lenght = 4, tick = 0;
         List<PictureBox> tails = new List<PictureBox>();
@@ -26,20 +27,25 @@ namespace Snake
             InitializeComponent();
         }
 
+        // Timer to move snake with tail and check for collison
         private void HandleEvents_Tick(object sender, EventArgs e)
         {
+            // apple render / tail create / head move
             appleBox.Location = apple.Location;
             snakeMoves.Move();
             head.Location = snakeMoves.HeadLocation;
             tailTimer.Start();
+            // eating
             if (head.Location == apple.Location)
             {
                 lenght++;
                 RenderApple();
                 score += 10;
             }
+            // check for collision
             if (tick>lenght)
                 Collision();
+            // display score
             scoreLabel.Text = $"Score: {score}";
         }
 
@@ -48,26 +54,9 @@ namespace Snake
 
         }
 
+        // Handle keys and send to move class
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            char dir = snakeMoves.SendDirection();
-            if (dir == 'u' && e.KeyCode == Keys.Down) 
-            {
-
-            }
-            if (dir == 'w' && e.KeyCode == Keys.Up)
-            {
-
-            }
-            if (dir == 'l' && e.KeyCode == Keys.Right)
-            {
-
-            }
-            if (dir == 'r' && e.KeyCode == Keys.Left)
-            {
-
-            }
-            else
                  snakeMoves.HandleKeys(e);
         }
 
@@ -76,12 +65,14 @@ namespace Snake
 
         }
 
+        // Timer to set tail location and remove tail
         private void tailTimer_Tick(object sender, EventArgs e)
         {
             pastLocation.Add(head.Location);
             tails.Add(addTails());
             tails[tick].Location = pastLocation[tick];
             tails[tick].BringToFront();
+            // removing
             if (tick > lenght-1)
                 tails[tick - lenght].Location = far;
             tick++;
@@ -92,6 +83,7 @@ namespace Snake
             
         }
 
+        // method to create new pictureBox of tail and set details
         private PictureBox addTails()
         {
             PictureBox tail = new PictureBox();
@@ -108,6 +100,7 @@ namespace Snake
 
         }
 
+        // method to render apple location
         private void RenderApple()
         {
             bool isit = true;
@@ -122,6 +115,7 @@ namespace Snake
                 }
             } while (isit == true);
         }
+        // method to check collision
         private void Collision()
         {
             for (int i = 1; i < lenght; ++i)
@@ -129,6 +123,7 @@ namespace Snake
                     Stop();
 
         }
+        // method to exit game and display score
         private void Stop()
         {
             tailTimer.Stop();

@@ -9,11 +9,13 @@ namespace Snake
 {
     class Apple
     {
+        // Variables and private property
         private Random rand = new Random();
 
         private Point location = new Point(42, 42);
         public Point Location { get =>location; set=>RenderLocation(); }
 
+        // Render pixels for apple location
         public void RenderLocation()
         {
             location.X = 28 * (rand.Next(1, 17)) - 14;
