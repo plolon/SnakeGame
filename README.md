@@ -17,3 +17,4 @@ Project is created with:
 
 ## Images
 ![Algorithm schema](./images/snakeMenu.png)
+![Algorithm schema](./images/snake.png)
