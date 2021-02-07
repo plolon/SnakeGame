@@ -29,6 +29,7 @@ namespace Snake
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.startButton = new System.Windows.Forms.Button();
             this.creditsButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
@@ -75,6 +76,7 @@ namespace Snake
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.creditsButton);
             this.Controls.Add(this.startButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainMenu";
